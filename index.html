@@ -29,66 +29,76 @@
             margin: 0;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             min-height: 100vh;
             overflow-x: hidden;
+            padding: 60px 0;
         }
 
         .container {
-            max-width: 600px;
+            max-width: 650px;
             width: 90%;
             text-align: center;
-            padding: 40px 20px;
         }
 
-        /* App Icon Placeholder */
-        .app-logo {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, #38bdf8 0%, #1d4ed8 100%);
-            border-radius: 22px;
-            margin: 0 auto 24px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 40px;
-            font-weight: 700;
-            color: white;
-            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.3);
+        /* App Icon */
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 28px;
+            margin: 0 auto 32px;
+            display: block;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 15px rgba(56, 189, 248, 0.2);
+            border: 1px solid var(--border-color);
+            background: #fff; /* アイコンの白背景に合わせる */
         }
 
         h1 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 16px;
             background: linear-gradient(to right, #fff, var(--accent-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            letter-spacing: -0.01em;
         }
 
-        .tagline {
-            color: var(--text-sub);
-            font-size: 1rem;
+        /* Marketing Text Section */
+        .hero-text {
+            color: var(--text-main);
+            font-size: 1.05rem;
+            line-height: 1.8;
             margin-bottom: 48px;
-            letter-spacing: 0.05em;
+            padding: 0 10px;
+            text-align: justify;
+            text-justify: inter-character;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 24px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
         }
 
-        /* Nav Links */
+        .hero-text span {
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        /* Nav Links Grid */
         .nav-grid {
             display: grid;
             gap: 16px;
-            margin-bottom: 60px;
+            margin-bottom: 48px;
         }
 
         .nav-card {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 20px 24px;
+            padding: 20px 28px;
             background: var(--card-bg);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border-radius: 16px;
+            border-radius: 18px;
             border: 1px solid var(--border-color);
             text-decoration: none;
             color: var(--text-main);
@@ -100,13 +110,14 @@
             transform: translateY(-4px);
             background: rgba(56, 189, 248, 0.1);
             border-color: var(--accent-color);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
 
         .nav-card .info h3 {
             margin: 0;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: #fff;
+            font-weight: 700;
         }
 
         .nav-card .info p {
@@ -117,49 +128,59 @@
 
         .nav-card .arrow {
             color: var(--accent-color);
-            font-size: 1.2rem;
+            font-size: 1.4rem;
+            opacity: 0.7;
         }
 
-        /* Support Button */
+        /* CTA Button */
         .btn-support {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             background: var(--accent-color);
             color: #0f172a;
-            padding: 14px 32px;
+            padding: 16px 40px;
             border-radius: 50px;
             font-weight: 700;
             text-decoration: none;
             transition: var(--transition);
-            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
         }
 
         .btn-support:hover {
             opacity: 0.9;
             transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+            box-shadow: 0 8px 25px rgba(56, 189, 248, 0.5);
         }
 
         footer {
             margin-top: 80px;
             color: var(--text-sub);
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             letter-spacing: 0.05em;
+            opacity: 0.8;
         }
 
+        /* Responsive Settings */
         @media (max-width: 480px) {
-            h1 { font-size: 1.8rem; }
-            .nav-card { padding: 16px 20px; }
+            h1 { font-size: 2rem; }
+            .hero-text { font-size: 0.95rem; padding: 20px; }
+            .nav-card { padding: 18px 22px; }
+            .app-icon { width: 100px; height: 100px; }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="app-logo">X</div>
+    <!-- icon.png を用意してください -->
+    <img src="icon.png" alt="X-Biz Icon" class="app-icon">
+    
     <h1>X-Biz AI Coach</h1>
-    <p class="tagline">Maximize your productivity with AI.</p>
+    
+    <div class="hero-text">
+        AIがあなたの<span>24時間を資産に変える</span>。タイムトラッキングと高度なAI分析で、無駄な時間を特定し生産性を最大化。非稼働時間と集中力の相関をAIコーチが徹底分析し、あなたの<span>「稼ぐ力」を限界まで引き上げます</span>。iPhoneで今すぐ始める、データに基づいた次世代のセルフコーチング体験。
+    </div>
 
     <nav class="nav-grid">
         <a href="https://ut872.github.io/X-Biz1/privacypolicy" class="nav-card">
@@ -180,7 +201,7 @@
 
         <a href="https://ut872.github.io/X-Biz1/asct/" class="nav-card">
             <div class="info">
-                <h3>Commercial Transactions Act</h3>
+                <h3>Act on Specified Commercial Transactions</h3>
                 <p>特定商取引法に基づく表記</p>
             </div>
             <span class="arrow">▹</span>
@@ -188,7 +209,7 @@
     </nav>
 
     <a href="https://forms.gle/jRpUudBFAcsR8tNB6" class="btn-support" target="_blank">
-        Contact & Feedback
+        お問い合わせ・フィードバック
     </a>
 
     <footer>
